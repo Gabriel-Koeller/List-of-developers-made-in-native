@@ -19,8 +19,10 @@ export function Home() {
     if (devs.includes(devName)) {
       return Alert.alert(`${devName} Já foi adicionado na lista...`);
     }
-    setDevs((prevState) => [...prevState, devName]);
-    setDevName("");
+    if (devName !== "") {
+      setDevs((prevState) => [...prevState, devName]);
+      setDevName("");
+    }
   }
 
   function handleDevRemove(name: string) {
